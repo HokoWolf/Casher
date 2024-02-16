@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casher", "Casher\Casher.csproj", "{339AD4E3-E225-498D-A868-C8B755B53E58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casher", "Casher\Casher.csproj", "{339AD4E3-E225-498D-A868-C8B755B53E58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casher.Dal", "Casher.Dal\Casher.Dal.csproj", "{23806839-0722-4E7A-85BF-0264E40718EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casher.Models", "Casher.Models\Casher.Models.csproj", "{7E1A29C6-FEB1-47D4-BA8F-06DEBCFC1586}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{339AD4E3-E225-498D-A868-C8B755B53E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{339AD4E3-E225-498D-A868-C8B755B53E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{339AD4E3-E225-498D-A868-C8B755B53E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23806839-0722-4E7A-85BF-0264E40718EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23806839-0722-4E7A-85BF-0264E40718EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23806839-0722-4E7A-85BF-0264E40718EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23806839-0722-4E7A-85BF-0264E40718EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E1A29C6-FEB1-47D4-BA8F-06DEBCFC1586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E1A29C6-FEB1-47D4-BA8F-06DEBCFC1586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E1A29C6-FEB1-47D4-BA8F-06DEBCFC1586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E1A29C6-FEB1-47D4-BA8F-06DEBCFC1586}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
