@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Withdraw";
+}
+@model WithdrawViewModel
+
+<div class="content">
+    <h1>Input Sum to Withdraw</h1>
+
+    <form asp-area="" asp-controller="Home" asp-action="Withdraw" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <input id="input-field" class="money-field" readonly 
+                   placeholder="250" asp-for="MoneyAmount" />
+            <span asp-validation-for="MoneyAmount" />
+        </div>
+        @await Html.PartialAsync("KeyboardPartial")
+        <div class="control">
+            <input class="control-item form-control" type="submit" value="Ok" />
+            <input class="control-item form-control" type="button" value="Clear" onclick="clearInput()" />
+            <input class="control-item form-control" type="submit" value="Exit" />
+        </div>
+    </form>
+</div>

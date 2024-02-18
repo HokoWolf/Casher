@@ -1,22 +1,96 @@
 html {
-  font-size: 14px;
+    font-size: 24px;
+    font-family: Arial 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+    min-height: 100%;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+input {
+    font-size: 18px;
+}
+
+html, div, main {
+    padding: 0;
+    margin: 0;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+main {
+    display: flex;
+    justify-content: center;
 }
 
-body {
-  margin-bottom: 60px;
+.content {
+    margin-top: 60px;
+    text-align: center;
 }
+
+#input-field {
+    width: auto;
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 32px;
+    border-radius: 5px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.keyboard {
+    margin-top: 20px;
+}
+
+    .keyboard input {
+        font-size: 36px;
+        width: 75px;
+        height: 75px;
+        margin: 5px;
+        background-color: #F0F8FF;
+    }
+
+        .keyboard input:hover {
+            background-color: #AAC8FF;
+        }
+        
+.control {
+    margin: 60px;
+}
+
+.control-item {
+    display: inline-block;
+    width: 240px;
+    height: 72px;
+    line-height: 72px;
+    margin: 0 5px;
+    border: 2px outset black;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    background-color: #7FFFD4;
+}
+
+    .control-item:hover {
+        cursor: default;
+        background-color: #63C7A6;
+    }
+
+.form-control {
+    width: 150px;
+    height: 60px;
+    line-height: 60px;
+    background-color: #7FFFD4;
+}
+
+
+.account-info {
+    margin-top: 40px;
+    border: 1px solid black;
+    letter-spacing: 2px;
+}
+    
+    .account-info span {
+        color: #505050;
+    }

@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+@model LoginViewModel
+
+<div class="content">
+    <h1>Input Card Number</h1>
+
+    <form asp-area="" asp-controller="Account" asp-action="Login" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <input id="input-field" type="password" readonly maxlength="4"
+                   placeholder="0000" asp-for="PinCode" />
+            <span asp-validation-for="PinCode" />
+        </div>
+        @await Html.PartialAsync("KeyboardPartial")
+        <div class="control">
+            <input class="control-item form-control" type="submit" value="Ok" />
+            <input class="control-item form-control" type="button" value="Clear" onclick="clearInput()" />
+            <input class="control-item form-control" type="submit" value="Exit" />
+        </div>
+    </form>
+</div>

@@ -1,4 +1,22 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function inputNumber(button) {
+    let input = document.getElementById("input-field")
 
-// Write your JavaScript code.
+    if (input.classList.contains("money-field")) {
+        if (input.value.length === 0 && button.value === "0") {
+            return
+        }
+        input.value += button.value
+    }
+    else if (input.value.length < input.maxLength) {
+        if (input.value.length > 0 && input.value.replace(/-/g, '').length % 4 == 0) {
+            input.value += "-" + button.value
+        }
+        else {
+            input.value += button.value
+        }
+    }
+}
+
+function clearInput() {
+    document.getElementById("input-field").value = ""
+}
