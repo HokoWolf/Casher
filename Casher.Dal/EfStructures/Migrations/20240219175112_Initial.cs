@@ -18,7 +18,6 @@ namespace Casher.Dal.EfStructures.Migrations
 
             migrationBuilder.CreateTable(
                 name: "bank_accounts",
-                schema: "dbo",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -32,6 +31,7 @@ namespace Casher.Dal.EfStructures.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_bank_accounts", x => x.id);
+                    table.CheckConstraint("CK_AccountBalance", "account_balance >= 0");
                 });
 
             migrationBuilder.CreateTable(
@@ -67,7 +67,6 @@ namespace Casher.Dal.EfStructures.Migrations
                     table.ForeignKey(
                         name: "FK_pin_code_attempts_bank_accounts",
                         column: x => x.bank_account_id,
-                        principalSchema: "dbo",
                         principalTable: "bank_accounts",
                         principalColumn: "id");
                 });
@@ -91,7 +90,6 @@ namespace Casher.Dal.EfStructures.Migrations
                     table.ForeignKey(
                         name: "FK_operations_bank_accounts",
                         column: x => x.bank_account_id,
-                        principalSchema: "dbo",
                         principalTable: "bank_accounts",
                         principalColumn: "id");
                     table.ForeignKey(
@@ -103,7 +101,6 @@ namespace Casher.Dal.EfStructures.Migrations
                 });
 
             migrationBuilder.InsertData(
-                schema: "dbo",
                 table: "bank_accounts",
                 columns: new[] { "id", "account_balance", "card_number", "is_blocked", "pin_code" },
                 values: new object[,]
@@ -154,7 +151,6 @@ namespace Casher.Dal.EfStructures.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_card_number",
-                schema: "dbo",
                 table: "bank_accounts",
                 column: "card_number",
                 unique: true);
@@ -194,8 +190,7 @@ namespace Casher.Dal.EfStructures.Migrations
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "bank_accounts",
-                schema: "dbo");
+                name: "bank_accounts");
         }
     }
 }

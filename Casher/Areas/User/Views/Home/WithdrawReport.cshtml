@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Withdraw Report";
+}
+@model WithdrawViewModel
+
+<div class="content">
+    <h1>Withdraw Report</h1>
+
+    <div class="account-info">
+        <h1>@Model.CardNumber</h1>
+        <h3><span>Date:</span> @Model.Date</h3>
+        <h3><span>Time:</span> @Model.Time</h3>
+        <h2><span>Withdrawn money:</span> @Model.MoneyAmount$</h2>
+        <h2><span>Balance:</span> @Model.Balance$</h2>
+    </div>
+
+    <div class="control">
+        <a class="control-item" asp-area="User" asp-controller="Home" asp-action="Index">Back</a>
+        <a class="control-item" asp-area="User" asp-controller="Home" asp-action="Logout">Exit</a>
+    </div>
+</div>

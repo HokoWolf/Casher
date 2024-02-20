@@ -7,9 +7,5 @@ namespace Casher.Models
         [Required]
         [Display(Name = "CardNumber")]
         public string? CardNumber { get; set; }
-
-        [Required]
-        [Display(Name = "PinCode")]
-        public string? PinCode { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace Casher.Models.Entities
@@ -34,5 +35,22 @@ namespace Casher.Models.Entities
 		[JsonIgnore]
 		[InverseProperty(nameof(PinCodeAttempt.BankAccountNavigation))]
 		public IEnumerable<PinCodeAttempt> PinCodeAttempts { get; set; } = new List<PinCodeAttempt>();
+
+		[JsonIgnore]
+		[NotMapped]
+		public string ViewCardNumber
+		{
+			get
+			{
+                StringBuilder viewCardNumber = new(CardNumber);
+
+                for (int i = viewCardNumber.Length - 4; i > 0; i -= 4)
+                {
+                    viewCardNumber.Insert(i, '-');
+                }
+
+                return viewCardNumber.ToString();
+            }
+		}
 	}
 }

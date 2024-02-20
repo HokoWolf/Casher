@@ -20,7 +20,8 @@ namespace Casher.Dal.EfStructures
 			modelBuilder.Entity<BankAccount>(entity =>
 			{
 				entity.HasData(SampleData.BankAccounts);
-			});
+                entity.ToTable("bank_accounts", t => t.HasCheckConstraint("CK_AccountBalance", "account_balance >= 0"));
+            });
 
 			modelBuilder.Entity<OperationType>(entity =>
 			{

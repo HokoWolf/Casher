@@ -36,7 +36,13 @@ namespace Casher.Dal.Repos.Base
 			return persist ? SaveChanges() : 0;
 		}
 
-		public virtual int Update(T entity, bool persist = true)
+        public virtual async Task<int> AddAsync(T entity, bool persist = true)
+        {
+            await Table.AddAsync(entity);
+            return persist ? await SaveChangesAsync() : 0;
+        }
+
+        public virtual int Update(T entity, bool persist = true)
 		{
 			Table.Update(entity);
 			return persist ? SaveChanges() : 0;
@@ -62,9 +68,11 @@ namespace Casher.Dal.Repos.Base
 
 		public int SaveChanges() => Context.SaveChanges();
 
+		public async Task<int> SaveChangesAsync() => await Context.SaveChangesAsync();
 
-		// IDisposable implementation
-		protected virtual void Dispose(bool disposing)
+
+        // IDisposable implementation
+        protected virtual void Dispose(bool disposing)
 		{
 			if (!_disposedValue)
 			{

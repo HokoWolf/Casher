@@ -5,5 +5,8 @@ namespace Casher.Dal.Repos.Interfaces
 {
 	public interface IPinCodeAttemptRepo : IRepo<PinCodeAttempt>
 	{
-	}
+        public int GetUnsuccessfulAttemptsCount(BankAccount bankAccount);
+
+        public Task<int> GetUnsuccessfulAttemptsCountAsync(BankAccount bankAccount);
+    }
 }

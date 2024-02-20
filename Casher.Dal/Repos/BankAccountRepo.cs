@@ -11,5 +11,11 @@ namespace Casher.Dal.Repos
 		public BankAccountRepo(AppDbContext context) : base(context) { }
 
 		internal BankAccountRepo(DbContextOptions<AppDbContext> options) : base(options) { }
-	}
+
+        public BankAccount? FindByCardNumber(string? cardNumber)
+			=> Table.FirstOrDefault(acc => acc.CardNumber == cardNumber);
+
+        public Task<BankAccount?> FindByCardNumberAsync(string? cardNumber)
+			=> Table.FirstOrDefaultAsync(acc => acc.CardNumber == cardNumber);
+    }
 }

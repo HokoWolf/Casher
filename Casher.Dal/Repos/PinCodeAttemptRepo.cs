@@ -11,5 +11,26 @@ namespace Casher.Dal.Repos
 		public PinCodeAttemptRepo(AppDbContext context) : base(context) { }
 
 		internal PinCodeAttemptRepo(DbContextOptions<AppDbContext> options) : base(options) { }
-	}
+
+        public int GetUnsuccessfulAttemptsCount(BankAccount bankAccount)
+        {
+            DateTime? lastSuccessDateTime = Table.OrderByDescending(attempt => attempt.AttemptDateTime)
+                .FirstOrDefault(attempt => attempt.IsSuccessful && attempt.BankAccountId == bankAccount.Id)?.AttemptDateTime;
+
+            return Table.Count(attempt => attempt.AttemptDateTime > lastSuccessDateTime && 
+                attempt.BankAccountId == bankAccount.Id);
+        }
+
+        public async Task<int> GetUnsuccessfulAttemptsCountAsync(BankAccount bankAccount)
+        {
+            PinCodeAttempt? lastSuccessfulAttempt = await Table
+                .OrderByDescending(attempt => attempt.AttemptDateTime)
+                .FirstOrDefaultAsync(attempt => attempt.IsSuccessful && attempt.BankAccountId == bankAccount.Id);
+
+            DateTime? lastSuccessDateTime = lastSuccessfulAttempt?.AttemptDateTime;
+
+            return await Table.CountAsync(attempt => attempt.AttemptDateTime > lastSuccessDateTime && 
+                attempt.BankAccountId == bankAccount.Id);
+        }
+    }
 }

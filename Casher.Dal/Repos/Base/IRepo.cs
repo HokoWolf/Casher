@@ -4,7 +4,9 @@
 	{
 		int Add(T entity, bool persist = true);
 
-		int Update(T entity, bool persist = true);
+		Task<int> AddAsync(T entity, bool persist = true);
+
+        int Update(T entity, bool persist = true);
 
 		int Delete(int id, byte[] timeStamp, bool persist = true);
 
@@ -17,5 +19,7 @@
 		void ExecuteQuery(string sql, object[] sqlParametersObjects);
 
 		int SaveChanges();
-	}
+
+		Task<int> SaveChangesAsync();
+    }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Casher.Dal.EfStructures.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240216172216_Initial")]
+    [Migration("20240219175112_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -65,7 +65,10 @@ namespace Casher.Dal.EfStructures.Migrations
                     b.HasIndex(new[] { "CardNumber" }, "IX_card_number")
                         .IsUnique();
 
-                    b.ToTable("bank_accounts", "dbo");
+                    b.ToTable("bank_accounts", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_AccountBalance", "account_balance >= 0");
+                        });
 
                     b.HasData(
                         new
